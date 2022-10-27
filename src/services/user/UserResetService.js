@@ -9,6 +9,8 @@ const UserResetService = async (Request, DataModel) => {
 
 
     try {
+
+        // First Process
         let OTPUsedCount = await OTPSModel.aggregate([{
             $match: {
                 email: email,
@@ -18,6 +20,7 @@ const UserResetService = async (Request, DataModel) => {
         }, {$count: "total"}])
 
         if (OTPUsedCount.length > 0) {
+            // Second Process
             let PassUpdate = await DataModel.updateOne({email: email}, {password: NewPass})
             return {status: "Success", data: "PassUpdated"}
         } else {
