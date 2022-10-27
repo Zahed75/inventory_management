@@ -12,7 +12,7 @@ const SendEmailUtility = async (EmailTo, EmailText, EmailSubject) => {
     });
 
     let mailOptions = {
-        from: 'Inventory <tech.syscomatic@gmail.com>',
+        from: 'Syscomatic-Inventory Management System <tech.syscomatic@gmail.com>',
         to: EmailTo,
         subject: EmailSubject,
         text: EmailText
