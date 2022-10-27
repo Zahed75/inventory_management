@@ -24,6 +24,7 @@ exports.ProfileUpdate=async (req, res) => {
     res.status(200).json(Result)
 }
 
+
 exports.ProfileDetails=async (req, res) => {
     let Result=await UserDetailsService(req,DataModel)
     res.status(200).json(Result)

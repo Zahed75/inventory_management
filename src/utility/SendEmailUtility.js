@@ -2,24 +2,17 @@ var nodemailer = require('nodemailer');
 
 const SendEmailUtility = async (EmailTo, EmailText, EmailSubject) => {
 
-    //SMTP SETUP
-
-    let transporter = nodemailer.createTransport({
-        host: "tech.syscomatic@gmail.com",
-        port: 25,
-        secure: false,
+    var transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
         auth: {
             user: "tech.syscomatic@gmail.com",
-            pass: 'F@ll2@22'
-        },
-        tls: {
-            rejectUnauthorized: false
-        },
-
+            pass: "dhmjzcefemgcficw"
+        }
     });
 
     let mailOptions = {
-        from: 'Syscomatic-Inventory Management System- <tech.syscomatic@gmail.com>',
+        from: 'Inventory <tech.syscomatic@gmail.com>',
         to: EmailTo,
         subject: EmailSubject,
         text: EmailText
@@ -27,6 +20,7 @@ const SendEmailUtility = async (EmailTo, EmailText, EmailSubject) => {
 
     return await transporter.sendMail(mailOptions)
 
-
 }
+
+//https://nodemailer.com/about/
 module.exports = SendEmailUtility
